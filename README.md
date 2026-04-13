@@ -4,7 +4,7 @@ Welcome to the repository for my personal portfolio website. This project showca
 
 ## 🌐 Live Website
 
-You can view the live version of my portfolio here: **https://achraf-personal-portfolio.vercel.app/**
+You can view the live version of my portfolio <a href="https://achraf-personal-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">**from here**</a>.
 
 ## ✨ Features
 
