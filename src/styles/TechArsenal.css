@@ -1,0 +1,210 @@
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes progressGrow {
+  from { width: 0%; }
+  to   { width: var(--target-width, 0%); }
+}
+
+.tech-section {
+  height: 100vh;
+  padding: 40px 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.tech-heading-grid {
+  grid-column: 1 / -1;
+  font-size: 2.2rem;
+  color: var(--text-dark);
+  font-weight: 800;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+  letter-spacing: -1px;
+  align-self: flex-start;
+  width: 100%;
+}
+
+/* JS adds this class immediately on mount so heading hides before paint */
+.tech-heading-grid.slide-ready {
+  opacity: 0;
+  transform: translateX(-80px);
+}
+
+.tech-heading-grid.visible {
+  animation: slideInLeft 1s ease forwards;
+}
+
+.tech-heading-grid::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: -5px;
+  width: 60px;
+  height: 5px;
+  background-color: var(--light-blue);
+  border-radius: 6px;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 160px));
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.tech-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.tech-img-wrapper {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.express-wrapper {
+  width: 78px;
+}
+.mongodb-wrapper {
+  width: 38px;
+  height: 38px;
+}
+
+.php-wrapper {
+  width: 36.5px;
+  height: 36.5px;
+}
+
+.mysql-wrapper {
+  width: 55px;
+  height: 38px;
+}
+
+.java-wrapper {
+  height: 41px;
+  width: 41px;
+}
+
+.kotlin-wrapper {
+
+  width: 28px;
+}
+
+.android-studio-wrapper {
+
+  width: 38px;
+  height: 38px;
+}
+
+
+
+
+.tech-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.tech-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.tech-type {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--grey);
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+/* Specific Badge Colors */
+.tech-type.language {
+  background-color: #f39c12;
+}
+
+.tech-type.framework {
+  background-color: #27ae60;
+}
+
+.tech-type.tool {
+  background-color: #8e44ad;
+}
+
+.tech-type.database {
+  background-color: #0e9aa7;
+}
+
+/* Progress Bar Container */
+.tech-progress-container {
+  width: 100%;
+  margin-top: auto;
+}
+
+.tech-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--grey);
+}
+
+.tech-progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: var(--progress-track-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tech-progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  width: 0%;
+}
+
+.tech-progress-fill.animate {
+  animation: progressGrow 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: var(--bar-delay, 0s);
+}

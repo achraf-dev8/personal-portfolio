@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --light-blue: #3597ff;
+  --pink: #ff498a;
+  --grey: #6c6c6c;
+  --light-bg: #f9fbff;
+  --card-bg: #ffffff;
+  --text-dark: #1e1e1e;
+  --progress-track-bg: #edf2f7;
+  --icon-bg: #f0f6ff;
+  --border-color: rgba(0, 0, 0, 0.07);
+}
+
+[data-theme="dark"] {
+  --grey: #9ca3af;
+  --light-bg: #0f1117;
+  --card-bg: #1a2035;
+  --text-dark: #e8eaf0;
+  --progress-track-bg: #2d3748;
+  --icon-bg: #1e2a42;
+  --border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Antd Menu Premium Overrides */
+.ant-menu-horizontal {
+  position: relative;
+  background: transparent !important;
+}
+
+.ant-menu-item {
+  position: relative;
+  transition: color 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6) !important;
+  z-index: 1;
+}
+
+/* Custom hanging indicator */
+.ant-menu-horizontal::after {
+  content: none !important; /* Hide default Antd line */
+}
+
+.ant-menu-item-selected::before {
+  content: none !important; /* Remove static pill, we use sliding JS pill now */
+}
+
+@keyframes hanging-in {
+  /* Removed - handled by shared sliding pill */
+}
+
+.ant-menu-item-selected .ant-menu-title-content {
+  color: var(--light-blue) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .ant-menu-item .ant-menu-title-content {
+  color: white !important;
+}
+
+[data-theme="dark"] .ant-menu-item-selected .ant-menu-title-content {
+  color: var(--light-blue) !important;
+}
+
+[data-theme="dark"] .ant-menu-item-selected::before {
+  background: var(--icon-bg); /* Use theme-aware var */
+}
+
+body {
+  background-color: var(--light-bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
