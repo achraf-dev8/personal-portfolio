@@ -286,3 +286,47 @@
 .zoom-nav-btn:hover {
   background: var(--pink);
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 992px) {
+  .projects-section {
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 5% 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .projects-heading {
+    font-size: 2rem;
+  }
+  
+  .projects-subtitle {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .project-card {
+    flex-direction: column !important;
+    gap: 15px !important;
+    align-items: center;
+  }
+  
+  .project-images {
+    width: 100% !important;
+    flex: none !important;
+    aspect-ratio: 16 / 9;
+  }
+  
+  .project-info {
+    padding: 0 10px;
+    flex: none !important;
+    width: 100%;
+  }
+  
+  .projects-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}

@@ -1,11 +1,11 @@
-import { Menu } from "antd";
+import { Menu, Drawer } from "antd";
 import logoLight from "./assets/logos/logo_light.png";
 import logoDark from "./assets/logos/logo_dark.png";
 import logoBrowserLight from "./assets/logos/logo_browser_light.png";
 import logoBrowserDark from "./assets/logos/logo_browser_dark.png";
 import { useApp } from "./context/AppContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faSun, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import About from "./screens/About";
 import Services from "./screens/Services";
@@ -18,6 +18,7 @@ function Portfolio() {
   const [activeSection, setActiveSection] = useState("about");
   const [navVisible, setNavVisible] = useState(true);
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Dynamic favicon based on browser/system theme, NOT app theme
   useEffect(() => {
@@ -117,36 +118,76 @@ function Portfolio() {
     ];
 
     return (
-      <div style={{ position: "relative", display: "flex", alignItems: "center", flex: 1, justifyContent: "flex-end" }}>
-        {/* Sliding Indicator Pill */}
-        <div style={{
-          position: "absolute",
-          height: "38px",
-          background: "var(--icon-bg)",
-          borderRadius: "12px",
-          transition: "all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6)",
-          left: `${indicatorStyle.left}px`,
-          width: `${indicatorStyle.width}px`,
-          opacity: indicatorStyle.opacity,
-          pointerEvents: "none",
-          zIndex: 0
-        }} />
-        
-        <Menu
-          mode="horizontal"
-          items={items}
-          onClick={handleClick}
-          selectedKeys={[activeSection]}
-          style={{ 
-            background: "transparent", 
-            border: "none", 
-            zIndex: 1, 
-            width: "100%", 
-            display: "flex", 
-            justifyContent: "flex-end" 
+      <>
+        <div className="desktop-nav" style={{ position: "relative", display: "flex", alignItems: "center", flex: 1, justifyContent: "flex-end" }}>
+          {/* Sliding Indicator Pill */}
+          <div style={{
+            position: "absolute",
+            height: "38px",
+            background: "var(--icon-bg)",
+            borderRadius: "12px",
+            transition: "all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6)",
+            left: `${indicatorStyle.left}px`,
+            width: `${indicatorStyle.width}px`,
+            opacity: indicatorStyle.opacity,
+            pointerEvents: "none",
+            zIndex: 0
+          }} />
+          
+          <Menu
+            mode="horizontal"
+            items={items}
+            onClick={handleClick}
+            selectedKeys={[activeSection]}
+            style={{ 
+              background: "transparent", 
+              border: "none", 
+              zIndex: 1, 
+              width: "100%", 
+              display: "flex", 
+              justifyContent: "flex-end"
+            }}
+          />
+        </div>
+
+        <button 
+          className="mobile-nav-toggle" 
+          onClick={() => setMobileMenuOpen(true)}
+          style={{
+            background: "transparent",
+            border: "none",
+            fontSize: "1.5rem",
+            color: "var(--light-blue)",
+            cursor: "pointer",
+            marginLeft: "auto",
+            display: "none" // hidden by default, shown via CSS on small screens
           }}
-        />
-      </div>
+        >
+          <FontAwesomeIcon icon={faBars} />
+        </button>
+
+        <Drawer
+          title={<span style={{ color: theme === 'dark' ? 'white' : 'inherit' }}>{t.nav.menu || "Menu"}</span>}
+          placement="right"
+          onClose={() => setMobileMenuOpen(false)}
+          open={mobileMenuOpen}
+          styles={{ 
+            body: { padding: 0, backgroundColor: theme === 'dark' ? '#0d1117' : '#fff' },
+            header: { backgroundColor: theme === 'dark' ? '#0d1117' : '#fff' }
+          }}
+          width={280}
+          rootClassName={theme === 'dark' ? 'dark-drawer' : ''}
+          closeIcon={<FontAwesomeIcon icon={faXmark} style={{ color: theme === 'dark' ? 'white' : 'inherit' }} />}
+        >
+          <Menu
+            mode="vertical"
+            items={items}
+            onClick={(e) => { handleClick(e); setMobileMenuOpen(false); }}
+            selectedKeys={[activeSection]}
+            style={{ border: "none", fontSize: "1.1rem" }}
+          />
+        </Drawer>
+      </>
     );
   }
 

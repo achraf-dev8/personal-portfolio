@@ -208,3 +208,29 @@
   animation: progressGrow 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   animation-delay: var(--bar-delay, 0s);
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 992px) {
+  .tech-section {
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 5% 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tech-heading-grid {
+    font-size: 2rem;
+  }
+  
+  .tech-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    place-items: center;
+  }
+  
+  .tech-card {
+    padding: 10px 8px;
+    max-width: 160px; /* Constrain max width so it doesn't look stretched if 2 columns */
+  }
+}
