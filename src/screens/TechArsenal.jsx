@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/TechArsenal.css';
 import { useApp } from '../context/AppContext';
 
@@ -28,6 +28,7 @@ const TechArsenal = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const { t, theme } = useApp();
+  const [loadedImages, setLoadedImages] = useState({});
 
   const getInterpolatedColor = (percentage) => {
     const ratio = percentage / 100;
@@ -128,8 +129,15 @@ const TechArsenal = () => {
           <div className="tech-card" key={tech.id}>
             <div className={`tech-img-wrapper ${tech.id === 11 ? 'express-wrapper' : ''} 
             ${tech.id === 12 ? 'mongodb-wrapper' : ''} ${tech.id === 10 ? 'php-wrapper' : ''} 
-            ${tech.id === 13 ? 'mysql-wrapper' : ''} ${tech.id === 8 ? 'java-wrapper' : ''} ${tech.id === 9 ? 'kotlin-wrapper' : ''} ${tech.id === 16 ? 'android-studio-wrapper' : ''}`}>
-              <img src={tech.image} alt={tech.title} className="tech-img" />
+            ${tech.id === 13 ? 'mysql-wrapper' : ''} ${tech.id === 8 ? 'java-wrapper' : ''} ${tech.id === 9 ? 'kotlin-wrapper' : ''} ${tech.id === 16 ? 'android-studio-wrapper' : ''}`} style={{ position: 'relative' }}>
+              {!loadedImages[tech.id] && <div className="shimmer-skeleton" style={{ borderRadius: '12px' }}></div>}
+              <img 
+                src={tech.image} 
+                alt={tech.title} 
+                className="tech-img" 
+                onLoad={() => setLoadedImages(prev => ({ ...prev, [tech.id]: true }))}
+                style={{ opacity: loadedImages[tech.id] ? 1 : 0, transition: 'opacity 0.3s' }}
+              />
             </div>
             
             <h2 className="tech-title">{tech.title}</h2>

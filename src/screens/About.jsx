@@ -24,6 +24,7 @@ function About() {
   const { t, lang } = useApp();
   const [showVideo, setShowVideo] = useState(false);
   const [started, setStarted] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(false);
   const sectionRef = useRef(null);
 
   const githubUrl = "https://www.github.com/achraf-dev8";
@@ -75,8 +76,15 @@ function About() {
 
         {/* LEFT */}
         <div className="about-card">
-          <div className="profile-video-wrapper" onClick={() => setShowVideo(true)}>
-            <img src={pfp} alt="pfp" className="profile-image" />
+          <div className="profile-video-wrapper" onClick={() => setShowVideo(true)} style={{ position: 'relative' }}>
+            {!imgLoaded && <div className="shimmer-skeleton" style={{ borderRadius: '50%' }}></div>}
+            <img 
+              src={pfp} 
+              alt="pfp" 
+              className="profile-image" 
+              onLoad={() => setImgLoaded(true)}
+              style={{ opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.3s' }}
+            />
             <div className="play-overlay">
               <FontAwesomeIcon icon={faCirclePlay} />
             </div>

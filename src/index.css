@@ -72,3 +72,50 @@ body {
   background-color: var(--light-bg);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* Premium Skeleton Shimmer */
+.shimmer-skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: #f0f0f0;
+  background-image: linear-gradient(
+    to right,
+    #f0f0f0 0%,
+    #e0e0e0 20%,
+    #f0f0f0 40%,
+    #f0f0f0 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 800px 100%; 
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards; 
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+  z-index: 2;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .shimmer-skeleton {
+  background: #2a3142;
+  background-image: linear-gradient(
+    to right,
+    #2a3142 0%,
+    #3b4358 20%,
+    #2a3142 40%,
+    #2a3142 100%
+  );
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0; 
+  }
+}
