@@ -159,7 +159,8 @@ function Portfolio() {
             fontSize: "1.5rem",
             color: "var(--light-blue)",
             cursor: "pointer",
-            marginLeft: "auto",
+            marginInlineEnd: "auto",
+            marginInlineStart: "10px", // added this so it's not sticking immediately to the logo
             display: "none" // hidden by default, shown via CSS on small screens
           }}
         >
@@ -213,11 +214,9 @@ function Portfolio() {
           alt="logo" 
           style={{ width: "50px", height: "50px", flexShrink: 0, objectFit: "contain" }} 
         />
-
-        <HeaderMenu />
-
+        {HeaderMenu()}
         {/* Toggle buttons */}
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginLeft: "12px", flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginInlineStart: "30px", flexShrink: 0 }}>
 
           {/* Dark mode toggle */}
           <button onClick={toggleTheme} style={{

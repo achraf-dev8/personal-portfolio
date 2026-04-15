@@ -164,8 +164,8 @@
 @media screen and (max-width: 992px) {
   .services-section {
     height: auto;
-    min-height: 100vh;
-    padding: 100px 5% 60px;
+    min-height: auto;
+    padding: 60px 5% 40px;
   }
   
   .service-card {
@@ -174,12 +174,33 @@
 }
 
 @media screen and (max-width: 768px) {
+  .services-section {
+    padding: 40px 5%;
+  }
+
   .services-heading {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .service-card {
     width: 100%;
     max-width: 100%;
+    padding: 20px 15px;
+  }
+
+  .service-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .service-title {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
   }
 }

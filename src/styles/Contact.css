@@ -50,7 +50,7 @@
 .contact-invitation {
   text-align: center;
   max-width: 700px;
-  margin: 40px 0 50px;
+  margin: 20px 0 30px;
   opacity: 0;
   transform: translateY(30px);
 }
@@ -207,12 +207,16 @@
 @media screen and (max-width: 768px) {
   .contact-section {
     height: auto;
-    min-height: 100vh;
-    padding: 100px 5% 60px;
+    min-height: auto;
+    padding: 40px 5% 30px;
   }
 
   .contact-heading {
     font-size: 2rem;
+  }
+
+  .contact-invitation {
+    margin: 15px 0 20px;
   }
 
   .contact-details {
@@ -223,5 +227,28 @@
   .contact-card {
     width: 100%;
     max-width: 100%;
+    padding: 20px 15px;
+    gap: 8px;
+  }
+
+  .contact-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+  }
+
+  .contact-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .contact-card p {
+    font-size: 0.9rem;
+  }
+
+  .contact-copy-btn {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    margin-top: 4px;
   }
 }

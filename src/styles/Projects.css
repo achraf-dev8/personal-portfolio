@@ -211,6 +211,14 @@
   color: var(--grey);
 }
 
+.project-desc-wrapper {
+  display: block;
+}
+
+.project-desc-toggle {
+  display: none;
+}
+
 /* Modal Zoom Gallery */
 .zoom-modal-overlay {
   position: fixed;
@@ -291,12 +299,16 @@
 @media screen and (max-width: 992px) {
   .projects-section {
     height: auto;
-    min-height: 100vh;
-    padding: 100px 5% 60px;
+    min-height: auto;
+    padding: 60px 5% 40px;
   }
 }
 
 @media screen and (max-width: 768px) {
+  .projects-section {
+    padding: 30px 5%;
+  }
+
   .projects-heading {
     font-size: 2rem;
   }
@@ -315,18 +327,58 @@
   .project-images {
     width: 100% !important;
     flex: none !important;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
+    max-height: 380px;
   }
   
   .project-info {
     padding: 0 10px;
     flex: none !important;
     width: 100%;
+    margin-top: 10px;
   }
   
-  .projects-nav-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+  .projects-nav-btn, .inner-nav-btn {
+    display: none !important;
+  }
+
+  .projects-viewport {
+    width: 100% !important;
+  }
+
+  .project-desc-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+
+  .project-desc-wrapper.expanded {
+    max-height: 800px;
+    opacity: 1;
+    margin-bottom: 10px;
+  }
+
+  .project-desc-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--grey);
+    color: var(--grey);
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    width: fit-content;
+    align-self: center;
+  }
+
+  .project-desc-toggle:hover {
+    color: var(--light-blue);
+    border-color: var(--light-blue);
   }
 }

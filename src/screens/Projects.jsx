@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import '../styles/Projects.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight, faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { useSwipeable } from 'react-swipeable';
 import { useApp } from '../context/AppContext';
 
 // Asset Import
@@ -24,9 +25,10 @@ import stockmg4 from '../assets/screenhsots/stockmg/stockmg4.png';
 import stockmg5 from '../assets/screenhsots/stockmg/stockmg5.png';
 import stockmg6 from '../assets/screenhsots/stockmg/stockmg6.png';
 
-const ProjectCard = ({ project, isRtl }) => {
+const ProjectCard = ({ project, isRtl, t }) => {
   const [imgIndex, setImgIndex] = useState(0);
   const [zoomIndex, setZoomIndex] = useState(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const nextImg = (e) => {
     e?.stopPropagation();
@@ -37,6 +39,12 @@ const ProjectCard = ({ project, isRtl }) => {
     e?.stopPropagation();
     setImgIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
   };
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => isRtl ? prevImg() : nextImg(),
+    onSwipedRight: () => isRtl ? nextImg() : prevImg(),
+    trackMouse: true
+  });
 
   const nextZoom = (e) => {
     e?.stopPropagation();
@@ -59,7 +67,7 @@ const ProjectCard = ({ project, isRtl }) => {
 
   return (
     <div className="project-card">
-      <div className="project-images">
+      <div className="project-images" {...swipeHandlers}>
         {imgIndex > 0 && (
           <button className={`inner-nav-btn ${isRtl ? 'right' : 'left'}`} onClick={prevImg}>
             <FontAwesomeIcon icon={isRtl ? faChevronRight : faChevronLeft} />
@@ -88,7 +96,13 @@ const ProjectCard = ({ project, isRtl }) => {
 
       <div className="project-info">
         <h2 className="project-title">{project.title}</h2>
-        <p className="project-desc">{project.description}</p>
+        <div className={`project-desc-wrapper ${isExpanded ? 'expanded' : ''}`}>
+          <p className="project-desc">{project.description}</p>
+        </div>
+        <button className="project-desc-toggle" onClick={() => setIsExpanded(!isExpanded)}>
+          <FontAwesomeIcon icon={isExpanded ? faChevronUp : faChevronDown} style={{marginRight: '6px'}}/>
+          {isExpanded ? (t.projects.less || 'Less') : (t.projects.more || 'More')}
+        </button>
       </div>
 
       {zoomIndex !== null && (
@@ -215,7 +229,7 @@ const Projects = () => {
 
           <div className="projects-viewport" ref={scrollRef} onScroll={handleScroll}>
             {projectsList.map((project) => (
-              <ProjectCard project={project} key={project.id} isRtl={isRtl} />
+              <ProjectCard project={project} key={project.id} isRtl={isRtl} t={t} />
             ))}
           </div>
 

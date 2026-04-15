@@ -105,7 +105,7 @@ function About() {
              </p>
           </div>
 
-          <a href={cvFile} download="Laifa_Achraf_Eddine_CV.pdf" className="download-btn">
+          <a href={cvFile} download="Achraf_Laifa_CV.pdf" className="download-btn">
             {t.about.downloadCV}
           </a>
 

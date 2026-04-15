@@ -6,6 +6,7 @@ export const translations = {
       techArsenal: "Tech Arsenal",
       projects: "Projects",
       contact: "Contact",
+      menu: "Menu",
     },
     about: {
       firstName: "Laifa",
@@ -52,6 +53,8 @@ export const translations = {
     projects: {
       heading: "My Projects",
       subtitle: "I have worked on several projects utilizing diverse technologies, from which:",
+      more: "More",
+      less: "Less",
       items: [
         {
           title: "Zayda",
@@ -85,6 +88,7 @@ export const translations = {
       techArsenal: "الترسانة التقنية",
       projects: "المشاريع",
       contact: "تواصل",
+      menu: "القائمة",
     },
     about: {
       firstName: "العيفة",
@@ -131,6 +135,8 @@ export const translations = {
     projects: {
       heading: "مشاريعي",
       subtitle: "عملت على عدة مشاريع باستخدام تقنيات متنوعة، من بينها:",
+      more: "المزيد",
+      less: "أقل",
       items: [
         {
           title: "زايدة",

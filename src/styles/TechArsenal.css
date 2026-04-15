@@ -213,12 +213,16 @@
 @media screen and (max-width: 992px) {
   .tech-section {
     height: auto;
-    min-height: 100vh;
-    padding: 100px 5% 60px;
+    min-height: auto;
+    padding: 60px 5% 40px;
   }
 }
 
 @media screen and (max-width: 768px) {
+  .tech-section {
+    padding: 30px 5%;
+  }
+
   .tech-heading-grid {
     font-size: 2rem;
   }
