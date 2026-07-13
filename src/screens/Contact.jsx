@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone, faCopy, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useApp } from '../context/AppContext';
 
-const EMAIL = "crackerappsdevs@gmail.com";
+const EMAIL = "ssportclan@gmail.com";
 const PHONE = "+213780006920";
 const PHONE_DISPLAY = "+213 780006920";
 
