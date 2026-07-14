@@ -66,7 +66,7 @@ export const translations = {
         },
         {
           title: "Stockfy",
-          description: "A comprehensive stock management solution for wholesalers to manage inventory, supervise customers and suppliers and easily manage orders. Supports dashboard summaries, profit and finance reports, printing invoices and receipts. Built with React, Express and MongoDB.",
+          description: "A comprehensive stock management solution for wholesalers to manage inventory, supervise customers and suppliers, and easily manage orders. Supports dashboard summaries, profit and finance reports, quick sell and managing refunds and debts, printing invoices and receipts, and monitoring the roles of different workers and customizing the categories and preferences. Built with React, Express, and MongoDB.",
         },
       ],
     },
@@ -148,7 +148,7 @@ export const translations = {
         },
         {
           title: "Stockfy",
-          description: "حل متكامل لإدارة المخزون لتجار الجملة، يشمل إدارة المخزون، الإشراف على العملاء والموردين، وإدارة الطلبات. يدعم ملخصات لوحة التحكم، تقارير الأرباح والشؤون المالية، وطباعة الفواتير. تم تطويره بـ React وExpress وMongoDB.",
+          description: "حل متكامل لإدارة المخزون لتجار الجملة، يشمل إدارة المخزون، الإشراف على العملاء والموردين، وإدارة الطلبات بسهولة. يدعم ملخصات لوحة التحكم، تقارير الأرباح والشؤون المالية، البيع السريع وإدارة المرتجعات والديون، طباعة الفواتير والإيصالات، مراقبة أدوار العمال المختلفين وتخصيص الفئات والتفضيلات. تم تطويره بـ React وExpress وMongoDB.",
         },
       ],
     },
