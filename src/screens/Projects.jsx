@@ -18,12 +18,21 @@ import answerit4 from '../assets/screenhsots/answerit/answerit4.png';
 import answerit5 from '../assets/screenhsots/answerit/answerit5.png';
 import answerit6 from '../assets/screenhsots/answerit/answerit6.png';
 
-import stockmg1 from '../assets/screenhsots/stockmg/stockmg1.png';
-import stockmg2 from '../assets/screenhsots/stockmg/stockmg2.png';
-import stockmg3 from '../assets/screenhsots/stockmg/stockmg3.png';
-import stockmg4 from '../assets/screenhsots/stockmg/stockmg4.png';
-import stockmg5 from '../assets/screenhsots/stockmg/stockmg5.png';
-import stockmg6 from '../assets/screenhsots/stockmg/stockmg6.png';
+import stockfyCropped1 from '../assets/screenhsots/stockfy/cropped/stockfy1.png';
+import stockfyCropped2 from '../assets/screenhsots/stockfy/cropped/stockfy2.png';
+import stockfyCropped3 from '../assets/screenhsots/stockfy/cropped/stockfy3.png';
+import stockfyCropped4 from '../assets/screenhsots/stockfy/cropped/stockfy4.png';
+import stockfyCropped5 from '../assets/screenhsots/stockfy/cropped/stockfy5.png';
+import stockfyCropped6 from '../assets/screenhsots/stockfy/cropped/stockfy6.png';
+import stockfyCropped7 from '../assets/screenhsots/stockfy/cropped/stockfy7.png';
+
+import stockfyFull1 from '../assets/screenhsots/stockfy/full/stockfy1.png';
+import stockfyFull2 from '../assets/screenhsots/stockfy/full/stockfy2.png';
+import stockfyFull3 from '../assets/screenhsots/stockfy/full/stockfy3.png';
+import stockfyFull4 from '../assets/screenhsots/stockfy/full/stockfy4.png';
+import stockfyFull5 from '../assets/screenhsots/stockfy/full/stockfy5.png';
+import stockfyFull6 from '../assets/screenhsots/stockfy/full/stockfy6.png';
+import stockfyFull7 from '../assets/screenhsots/stockfy/full/stockfy7.png';
 
 const ProjectCard = ({ project, isRtl, t }) => {
   const [imgIndex, setImgIndex] = useState(0);
@@ -116,7 +125,7 @@ const ProjectCard = ({ project, isRtl, t }) => {
               </button>
             )}
 
-            <img src={project.images[zoomIndex]} alt="Zoomed Project" className="zoom-img" />
+            <img src={project.fullImages[zoomIndex]} alt="Zoomed Project" className="zoom-img" />
 
             {zoomIndex < project.images.length - 1 && (
               <button className="zoom-nav-btn right" onClick={nextZoom}>
@@ -142,7 +151,29 @@ const Projects = () => {
   const imageGroups = [
     [zayda1, zayda2, zayda3, zayda4],
     [answerit1, answerit2, answerit3, answerit4, answerit5, answerit6],
-    [stockmg1, stockmg2, stockmg3, stockmg4, stockmg5, stockmg6],
+    [
+      stockfyCropped1,
+      stockfyCropped2,
+      stockfyCropped3,
+      stockfyCropped4,
+      stockfyCropped5,
+      stockfyCropped6,
+      stockfyCropped7,
+    ],
+  ];
+
+  const fullImageGroups = [
+    [zayda1, zayda2, zayda3, zayda4],
+    [answerit1, answerit2, answerit3, answerit4, answerit5, answerit6],
+    [
+      stockfyFull1,
+      stockfyFull2,
+      stockfyFull3,
+      stockfyFull4,
+      stockfyFull5,
+      stockfyFull6,
+      stockfyFull7,
+    ],
   ];
 
   const projectsList = t.projects.items.map((item, i) => ({
@@ -150,6 +181,7 @@ const Projects = () => {
     title: item.title,
     description: item.description,
     images: imageGroups[i],
+    fullImages: fullImageGroups[i],
   }));
 
   const handleScroll = () => {

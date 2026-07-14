@@ -65,7 +65,7 @@ export const translations = {
           description: "A trivia party game where friends play in competitive rounds to answer questions and earn points. Features 6 categories, 4 playing modes and over 1k questions. Built with native Android development using Kotlin and Java.",
         },
         {
-          title: "StockMg",
+          title: "Stockfy",
           description: "A comprehensive stock management solution for wholesalers to manage inventory, supervise customers and suppliers and easily manage orders. Supports dashboard summaries, profit and finance reports, printing invoices and receipts. Built with React, Express and MongoDB.",
         },
       ],
@@ -147,7 +147,7 @@ export const translations = {
           description: "لعبة ثقافية حيث يتنافس الأصدقاء في جولات للإجابة على الأسئلة وجمع النقاط. تتضمن 6 فئات و4 أوضاع لعب وأكثر من 1000 سؤال. تم تطويرها بـ Kotlin وJava لنظام Android.",
         },
         {
-          title: "StockMg",
+          title: "Stockfy",
           description: "حل متكامل لإدارة المخزون لتجار الجملة، يشمل إدارة المخزون، الإشراف على العملاء والموردين، وإدارة الطلبات. يدعم ملخصات لوحة التحكم، تقارير الأرباح والشؤون المالية، وطباعة الفواتير. تم تطويره بـ React وExpress وMongoDB.",
         },
       ],
