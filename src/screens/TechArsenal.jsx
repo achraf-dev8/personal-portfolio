@@ -53,14 +53,13 @@ const TechArsenal = () => {
     
     { id: 8, image: javaImg, title: "Java", type: "Language", percentage: 80 },
     { id: 9, image: kotlinImg, title: "Kotlin", type: "Language", percentage: 85 },
-    { id: 16, image: androidStudioImg, title: "Android Studio", type: "Tool", percentage: 85 },
+    { id: 15, image: androidStudioImg, title: "Android Studio", type: "Tool", percentage: 85 },
     { id: 14, image: firebaseImg, title: "Firebase", type: "Database", percentage: 85 },
     
     { id: 1, image: pythonImg, title: "Python", type: "Language", percentage: 90 },
     
-    { id: 17, image: theme === 'dark' ? githubDarkImg : githubImg, title: "Git", type: "Tool", percentage: 85 },
-    { id: 18, image: antigravityImg, title: "Antigravity", type: "Tool", percentage: 90 },
-    { id: 15, image: figmaImg, title: "Figma", type: "Tool", percentage: 70 }, 
+    { id: 16, image: theme === 'dark' ? githubDarkImg : githubImg, title: "Git", type: "Tool", percentage: 85 },
+    { id: 17, image: antigravityImg, title: "Antigravity", type: "Tool", percentage: 90 },
   ];
 
   useEffect(() => {
